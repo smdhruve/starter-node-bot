@@ -16,6 +16,7 @@ bot.startRTM(function (err, bot, payload) {
   if (err) {
     throw new Error('Could not connect to Slack')
   }
+  console.log(payload)
 })
 
 controller.on('bot_channel_join', function (bot, message) {
@@ -65,4 +66,5 @@ controller.hears(['attachment'], ['direct_message', 'direct_mention'], function 
 
 controller.hears('.*', ['direct_message', 'direct_mention'], function (bot, message) {
   bot.reply(message, 'Sorry <@' + message.user + '>, I don\'t understand. \n')
+  console.log(message)
 })
